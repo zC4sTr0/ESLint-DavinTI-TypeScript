@@ -32,7 +32,6 @@
     "keyword-spacing": "error",
     "arrow-spacing": "error",
     "space-infix-ops": "error",
-    "spaced-comment": "error",
     "no-multiple-empty-lines": "error",
     "no-constant-condition": "off",
     "no-var": "off",
@@ -43,7 +42,7 @@
   },
   "overrides": [
     {
-      "files": ["*.js"],
+      "files": ["*.js", "**/*.js"], // Include .js files and .js files inside folders
       "rules": {
         "@typescript-eslint/no-var-requires": "off"
       }

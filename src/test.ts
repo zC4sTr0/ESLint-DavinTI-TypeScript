@@ -1,7 +1,3 @@
-function fn(b) {
-    if (b > 3) {
-    }
-
-}
-
-fn(2);
+engine.deprecatedMethod();
+engine.debug('Teste');
+    engine.debug('Teste Fora do padrão de identação');

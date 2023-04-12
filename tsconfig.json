@@ -11,9 +11,11 @@
       "downlevelIteration": true,
       "allowUnreachableCode": false,
       "allowUnusedLabels": false,
-      "noUnusedParameters": true
+      "noUnusedParameters": true,
+      "allowJs": true,
+      "checkJs": true
     },
     "exclude": ["node_modules"],
-    "include": ["**/*.ts"]
+    "include": ["**/*.ts", "**/*.js"]
 }
   
