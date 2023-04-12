@@ -17,6 +17,11 @@ declare class Engine {
      * ```
      */
     debug(message: string): void;
+
+    /**
+     * @deprecated Método OBSOLETO. Não utilizar. Utilize a biblioteca 'messages' em vez disso.
+     */
+    funcaoObsoleta(): void;
     /**
      * Método para obter o valor de um campo do Vitrúvio.
      * @function getField
@@ -30,8 +35,9 @@ declare class Engine {
      * ```
      */
     getField(fieldId: string): Object | undefined;
+
     /**
-     * Método para obter o número da instância do processo em execução no Vitrúvio. Para obter o ID do processo, utilize o método {@link getProcessDefinitionId}.
+     * Método para obter o número da instância do processo em execução no Vitrúvio.
      * @function getProcessInstanceId
      * @memberOf Engine
      * @returns {number} Retorna uma String com o ID da instância do processo em execução no Vitrúvio.
@@ -56,22 +62,25 @@ declare class Engine {
      * ```
      */
     buildEngineContextInfo(): string;
+
     /**
      * Solicita o fechamento do presenter, caso esteja disposto em uma janela.
      * @returns Um booleano indicando se o fechamento foi realizado com sucesso.
      */
     close(): boolean;
+
     /**
      * Solicita o fechamento do presenter, caso esteja disposto em uma janela.
      * @param forceClose - Um booleano para forçar o fechamento do presenter.
      * @returns Um booleano indicando se o fechamento foi realizado com sucesso.
      */
     close(forceClose: boolean): boolean;
+
     /**
      * Realiza o commit dos dados do formulário e retorna os dados atualizados.
      * @returns Os dados do formulário atualizados.
      */
-    commitAndGetFormData(): Object;
+    commitAndGetFormData(): void;
     /**
      * Registra uma mensagem de depuração no Vitrúvio com um objeto como argumento.
      * @param object - O objeto a ser registrado no log de depuração do Vitrúvio.
@@ -175,7 +184,7 @@ declare class Engine {
      * Acessa o usuário logado.
      * @returns Uma instância de UsuarioDTO correspondente ao usuário logado.
      */
-    getLoggedUser(): Object;
+    getLoggedUser(): UserDTO;
     /**
      * Obtém uma relação de todos os campos modificados.
      * @param fieldId - O ID do campo a ser verificado.
