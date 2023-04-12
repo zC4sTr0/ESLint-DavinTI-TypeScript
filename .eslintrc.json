@@ -25,7 +25,7 @@
     "no-multi-spaces": "error",
     "no-extra-parens": "error",
     "quotes": ["error", "single", { "avoidEscape": true }],
-    "comma-spacing": "error",
+    "comma-spacing": "warn",
     "comma-style": "error",
     "brace-style": "error",
     "space-before-blocks": "error",
