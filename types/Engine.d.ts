@@ -58,14 +58,26 @@ declare class Engine {
      * ```javascript
      * // Obter informações do contexto da engine
      * const engineContextInfo = engine.buildEngineContextInfo();
-     * console.log(engineContextInfo);
+     * engine.debug(engineContextInfo);
      * ```
      */
     buildEngineContextInfo(): string;
 
     /**
+     * @function close
+     * memberOf Engine
      * Solicita o fechamento do presenter, caso esteja disposto em uma janela.
-     * @returns Um booleano indicando se o fechamento foi realizado com sucesso.
+     * @returns {boolean} Um booleano indicando se o fechamento foi realizado com sucesso.
+     * @example
+     * ```javascript
+     * // fechar o formulário atual
+     * var fechadoComSucesso = engine.close();
+     * if (fechadoComSucesso) {
+     *    engine.debug("Formulário fechado com sucesso!");
+     * } else {
+     *   engine.debug("Formulário não foi fechado!");
+     * }
+     * ```
      */
     close(): boolean;
 
@@ -146,7 +158,7 @@ declare class Engine {
      * Obtém a descrição parametrizada do formulário.
      * @returns A descrição do formulário ou NULL caso não esteja definida.
      */
-    getFormDescription(): string | null;
+    getFormDescription(): string | null | undefined;
     /**
      * Obtém o nome do formulário associado à engine.
      * @returns O nome do formulário.

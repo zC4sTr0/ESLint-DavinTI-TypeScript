@@ -24,15 +24,18 @@
     "no-trailing-spaces": "error",
     "no-multi-spaces": "error",
     "no-extra-parens": "error",
-    "quotes": ["error", "single", { "avoidEscape": true }],
     "comma-spacing": "warn",
     "comma-style": "error",
     "brace-style": "error",
+    "eqeqeq": ["error", "always"],
+    "no-console": "error",
+    "no-debugger": "error",
+    "no-duplicate-imports": "error",
     "space-before-blocks": "error",
     "keyword-spacing": "error",
     "arrow-spacing": "error",
     "space-infix-ops": "error",
-    "no-multiple-empty-lines": "error",
+    "no-multiple-empty-lines": ["error", { "max": 1 }],
     "no-constant-condition": "off",
     "no-var": "off",
     "indent": ["error", 4],
@@ -42,7 +45,7 @@
   },
   "overrides": [
     {
-      "files": ["*.js", "**/*.js"], // Include .js files and .js files inside folders
+      "files": ["*.,js", "**/*.js", "*.ts", "**/*.ts"], // Include .js files and .js files inside folders
       "rules": {
         "@typescript-eslint/no-var-requires": "off"
       }
