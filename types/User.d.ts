@@ -35,9 +35,19 @@ declare class UserDTO {
     getInitScript(): string;
     /**
      * Obtém o login do usuário.
+     *
+     * Para obter o nome do usuário ao invés do login, utilize o método {@link getName}
      * @function getLogin
      * @memberOf UserDTO
-     * @returns {string} O login do usuário.
+     * @returns {string} uma string com o login do usuário.
+     * @example
+     * ```javascript
+     * var login_usuario_logado = engine.getLoggedUser().getLogin();
+     * if (login_usuario_logado !== '') {
+     *   engine.debug('O login do usuário logado é: ' + login_usuario_logado);
+     * }
+     * ```
+     * @summary Obtém o login do usuário.
      */
     getLogin(): string;
     /**
