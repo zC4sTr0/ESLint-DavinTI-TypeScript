@@ -9,7 +9,7 @@
     "node": false,
     "browser": false
   },
-  "globals": {
+  "globals": { 
     "engine": "readonly"
   },
   "rules": {

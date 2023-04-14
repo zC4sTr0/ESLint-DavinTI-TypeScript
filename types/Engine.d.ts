@@ -80,14 +80,13 @@ declare class Engine {
      * ```
      */
     close(): boolean;
-
     /**
      * Solicita o fechamento do presenter, caso esteja disposto em uma janela.
      * @param forceClose - Um booleano para forçar o fechamento do presenter.
      * @returns Um booleano indicando se o fechamento foi realizado com sucesso.
+     * @override O método engine.close() possui uma sobrecarga que permite forçar o fechamento do presenter com o parâmetro forceClose.
      */
     close(forceClose: boolean): boolean;
-
     /**
      * Realiza o commit dos dados do formulário e retorna os dados atualizados.
      * @returns Os dados do formulário atualizados.
