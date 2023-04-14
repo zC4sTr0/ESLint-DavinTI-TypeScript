@@ -16,7 +16,14 @@ declare class UserDTO {
      * Obtém o endereço de e-mail do usuário.
      * @function getEmail
      * @memberOf UserDTO
-     * @returns {string} O endereço de e-mail do usuário.
+     * @returns {string} uma string com o endereço de e-mail registrado do usuário.
+     * @example
+     * ```javascript
+     * var email_usuario_logado = engine.getLoggedUser().getEmail();
+     * if (email_usuario_logado !== '') {
+     *    engine.debug('O email do usuário logado é: ' + email_usuario_logado);
+     * }
+     * ```
      */
     getEmail(): string;
     /**
