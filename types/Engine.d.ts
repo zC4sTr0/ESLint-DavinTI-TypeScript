@@ -7,6 +7,7 @@
 declare class Engine {
     /**
      * Método para registrar mensagens de depuração no Vitrúvio.
+     * Mensagens de depuração são exibidas no log do Vitrúvio e podem ser utilizadas para solucionar problemas de execução.
      * @function debug
      * @memberOf Engine
      * @param {string} message - A mensagem a ser registrada no log do Vitrúvio.
@@ -17,7 +18,6 @@ declare class Engine {
      * ```
      */
     debug(message: string): void;
-
     /**
      * @deprecated Método OBSOLETO. Não utilizar. Utilize a biblioteca 'messages' em vez disso.
      */
@@ -35,7 +35,6 @@ declare class Engine {
      * ```
      */
     getField(fieldId: string): Object | undefined;
-
     /**
      * Método para obter o número da instância do processo em execução no Vitrúvio.
      * @function getProcessInstanceId
@@ -48,7 +47,6 @@ declare class Engine {
      * ```
      */
     getProcessInstanceId(): number;
-
     /**
      * Constrói uma string com informações detalhadas sobre o contexto da engine.
      * @function buildEngineContextInfo
@@ -62,7 +60,6 @@ declare class Engine {
      * ```
      */
     buildEngineContextInfo(): string;
-
     /**
      * @function close
      * memberOf Engine
@@ -85,6 +82,16 @@ declare class Engine {
      * @param forceClose - Um booleano para forçar o fechamento do presenter.
      * @returns Um booleano indicando se o fechamento foi realizado com sucesso.
      * @override O método engine.close() possui uma sobrecarga que permite forçar o fechamento do presenter com o parâmetro forceClose.
+     * @example
+     * ```javascript
+     * // força o fechamento do formulário atual
+     * var forcarFechamento = true; // força o fechamento do formulário
+     * var fechadoComSucesso = engine.close(forcarFechamento);
+     * if (fechadoComSucesso) {
+     *   engine.debug("Formulário fechado com sucesso!");
+     * } else {
+     *  engine.debug("Formulário não foi fechado!");
+     * }
      */
     close(forceClose: boolean): boolean;
     /**
@@ -123,7 +130,9 @@ declare class Engine {
      */
     getEngineUUID(): string;
     /**
-     * Acessa um campo de dados pelo ID.
+     * Acessa um campo de dados pelo ID do campo.
+     * O campo deve estar declarado no arquivo de definição do mesmo formulário que a engine está executando.
+     * Para acessar campos de outros formulários, utilize o método execution.getVariable().
      * @param fieldId - ID do campo a ser obtido.
      * @returns O objeto Field<?> correspondente ou undefined caso não exista.
      * @example
@@ -164,9 +173,20 @@ declare class Engine {
      */
     getFormName(): string;
     /**
-     * Acessa uma variável global definida no escopo da engine do formulário.
+     * Acessa uma variável global definida previamente pelo método {@link setGlobalVariable}
      * @param key - A chave da variável global.
      * @returns O valor da variável global ou undefined caso não exista.
+     * @example
+     * ```javascript
+     * // Obter a variável global 'nomeFramework' e exibir no log de depuração
+     * const nomeFramework = engine.getGlobalVariable("nomeFramework");
+     * if (nomeFramework) {
+     *  engine.debug("Nome do Framework: " + nomeFramework);
+     * } else {
+     *  engine.debug("Variável global 'nomeFramework' não definida!");
+     *  engine.setGlobalVariable("nomeFramework", "Vitruvio");
+     * }
+     * ```
      */
     getGlobalVariable(key: string): Object | undefined;
     /**
@@ -192,8 +212,18 @@ declare class Engine {
      */
     getLayoutIds(): Object;
     /**
-     * Acessa o usuário logado.
-     * @returns Uma instância de UsuarioDTO correspondente ao usuário logado.
+     * Retorna o objeto correspondente ao usuário logado no Vitrúvio.
+     * Este objeto contém métodos para manipulação dos dados de um usuário.
+     * Para obter o email do usuário retornado, utilize o método {@link UserDTO.getEmail}
+     * @returns Uma instância de UserDTO correspondente ao usuário logado.
+     * @example
+     * ```javascript
+     * // Obtém o email do usuário logado no Vitrúvio e exibe no log de depuração
+     * const usuarioLogado = engine.getLoggedUser(); // Obtém o usuário logado
+     * const emailUsuario = usuarioLogado.getEmail(); // Obtém o email do usuário logado
+     * engine.debug("Email do usuário logado: " + emailUsuario);
+     * ```
+     * @summary Obtém o usuário logado no Vitrúvio.
      */
     getLoggedUser(): UserDTO;
     /**
@@ -228,7 +258,6 @@ declare class Engine {
     * @returns Uma instância de Validator correspondente ao ID informado.
     */
     getValidator(id: string): Object;
-
     /**
      * Acessa a coleção de validadores.
      * @returns Uma coleção de instâncias de Validator.
@@ -321,7 +350,6 @@ declare class Engine {
      * @param enabled - Um booleano indicando se o cancelamento deve ser habilitado.
      */
     setCancelEnabled(enabled: boolean): void;
-
     /**
      * Habilita ou desabilita a ação de concluir o formulário.
      * @param enabled - Um booleano indicando se a ação de concluir deve ser habilitada.
