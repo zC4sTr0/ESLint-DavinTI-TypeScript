@@ -11,8 +11,8 @@
 
 ## Preview
 
-<video poster="demo.jpg">
-  <video src="docs/video/preview-fullscreen.webm" type="video/webm">
+<video>
+  <video src="docs\video\preview-fullscreen.webm" type="video/webm">
 </video>
 ![Preview API Engine](docs\img\preview-ts-engine.gif)
 ![Preview API Users](docs\img\preview-ts-users.gif)
