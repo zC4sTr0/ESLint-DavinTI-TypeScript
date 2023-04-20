@@ -21,6 +21,7 @@
     "no-param-reassign": "error",
     "no-shadow": "error",
     "no-else-return": "error",
+    "no-empty": "error",
     "no-trailing-spaces": "error",
     "no-multi-spaces": "error",
     "no-extra-parens": "error",
@@ -38,7 +39,7 @@
     "no-multiple-empty-lines": ["error", { "max": 1 }],
     "no-constant-condition": "off",
     "no-var": "off",
-    "indent": ["error", 4],
+    "indent": ["error", 3],
     "no-implicit-globals": "off",
     "no-inner-declarations": "off",
     "no-use-before-define": "off"
